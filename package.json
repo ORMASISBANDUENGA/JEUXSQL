@@ -56,7 +56,6 @@
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
-    "@types/canvas-confetti": "^1.9.0",
     "@vitejs/plugin-react": "^5.0.4",
     "alasql": "^4.17.3",
     "canvas-confetti": "^1.9.4",
@@ -66,19 +65,19 @@
     "motion": "^12.23.24",
     "qrcode.react": "^4.2.0",
     "react": "^19.0.1",
-    "react-dom": "^19.0.1",
-    "vite": "^6.2.3"
+    "react-dom": "^19.0.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
+    "electron": "^34.3.0",
+    "electron-builder": "^25.1.8",
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.3",
-    "@types/express": "^4.17.21",
-    "electron": "^34.3.0",
-    "electron-builder": "^25.1.8"
+    "vite": "^6.2.3"
   }
 }
