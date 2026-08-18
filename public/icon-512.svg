@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0d1b" />
+      <stop offset="50%" stop-color="#15193b" />
+      <stop offset="100%" stop-color="#0b0d1b" />
+    </linearGradient>
+    <linearGradient id="neon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6C63FF" />
+      <stop offset="50%" stop-color="#00D4FF" />
+      <stop offset="100%" stop-color="#00E676" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Rounded Shield / Icon Container -->
+  <rect width="512" height="512" rx="128" fill="url(#bg-grad)" stroke="#2f3775" stroke-width="8" />
+
+  <!-- Database Cylinders -->
+  <g filter="url(#glow)" transform="translate(106, 110)">
+    <!-- Top Cylinder Cap -->
+    <ellipse cx="150" cy="50" rx="130" ry="38" fill="url(#neon-grad)" opacity="0.9" />
+    
+    <!-- Cylinder 1 Body -->
+    <path d="M 20,50 v 55 c 0,21 58,38 130,38 s 130,-17 130,-38 v -55" fill="none" stroke="url(#neon-grad)" stroke-width="14" stroke-linecap="round" />
+    
+    <!-- Cylinder 2 Body -->
+    <path d="M 20,130 v 55 c 0,21 58,38 130,38 s 130,-17 130,-38 v -55" fill="none" stroke="url(#neon-grad)" stroke-width="14" stroke-linecap="round" />
+
+    <!-- Cylinder 3 Body -->
+    <path d="M 20,210 v 55 c 0,21 58,38 130,38 s 130,-17 130,-38 v -55" fill="none" stroke="url(#neon-grad)" stroke-width="14" stroke-linecap="round" />
+    
+    <!-- Sword / Key Sparkle Crossing -->
+    <circle cx="150" cy="50" r="16" fill="#FFFFFF" />
+    <path d="M 150,20 v 60 M 120,50 h 60" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- SQL Text Badge -->
+  <text x="256" y="440" text-anchor="middle" fill="#00D4FF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" letter-spacing="4">SQL QUEST</text>
+  <text x="256" y="475" text-anchor="middle" fill="#8d99c7" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" letter-spacing="2">OROMASIS</text>
+</svg>

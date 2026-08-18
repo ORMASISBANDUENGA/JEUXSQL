@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bg-grad-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0d1b" />
+      <stop offset="100%" stop-color="#15193b" />
+    </linearGradient>
+    <linearGradient id="neon-grad-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6C63FF" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="48" fill="url(#bg-grad-sm)" stroke="#2f3775" stroke-width="4" />
+  <g transform="translate(36, 38)">
+    <ellipse cx="60" cy="20" rx="52" ry="16" fill="url(#neon-grad-sm)" />
+    <path d="M 8,20 v 24 c 0,9 23,16 52,16 s 52,-7 52,-16 v -24" fill="none" stroke="url(#neon-grad-sm)" stroke-width="6" stroke-linecap="round" />
+    <path d="M 8,52 v 24 c 0,9 23,16 52,16 s 52,-7 52,-16 v -24" fill="none" stroke="url(#neon-grad-sm)" stroke-width="6" stroke-linecap="round" />
+    <path d="M 8,84 v 24 c 0,9 23,16 52,16 s 52,-7 52,-16 v -24" fill="none" stroke="url(#neon-grad-sm)" stroke-width="6" stroke-linecap="round" />
+  </g>
+</svg>

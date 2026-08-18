@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0b0d1b;
+    --bg-card: #12152e;
+    --border-color: #252c5d;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+  }
+
+  html.light {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f1123;
+  }
+  html.light ::-webkit-scrollbar-track {
+    background: #e2e8f0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2d4a;
+    border-radius: 4px;
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6c63ff;
+  }
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+  }
+}
+
+.glow-box {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes floatAnim {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.float-effect {
+  animation: floatAnim 4s ease-in-out infinite;
+}

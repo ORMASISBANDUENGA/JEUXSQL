@@ -1,0 +1,71 @@
+name: Build & Release Desktop Apps (Windows .exe, Mac, Linux)
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-desktop:
+    name: Build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Web Application
+        run: npm run build
+
+      - name: Build Desktop Executables with Electron Builder
+        run: npx --yes electron-builder --win --publish never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts (Windows .exe)
+        uses: actions/upload-artifact@v4
+        with:
+          name: SQL-Quest-Arena-Windows
+          path: |
+            release/*.exe
+            release/*.blockmap
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.exe
+          name: SQL Quest Arena ${{ github.ref_name }} (par OROMASIS BANDUENGA)
+          body: |
+            ## 🎮 SQL Quest Arena - Fichiers d'installation Windows
+
+            Conçu et développé par **OROMASIS BANDUENGA**
+
+            ### 📥 Téléchargements :
+            - **Installateur Windows (.exe)** : `SQL Quest Arena Setup 1.0.0.exe` (avec icône et menu Démarrer)
+            - **Version Portable (.exe)** : `SQL Quest Arena 1.0.0.exe` (exécutable direct sans installation)
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

@@ -1,0 +1,6 @@
+{
+  "name": "SQL QUEST",
+  "description": "Plateforme gamifiée d'apprentissage et de maîtrise du SQL par OROMASIS BANDUENGA avec bac à sable interactif, mini-jeux, PWA hors-ligne et mode sombre.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
