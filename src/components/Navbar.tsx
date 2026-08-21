@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Sparkles, Flame, Heart, Volume2, VolumeX, Shield, Award, Sun, Moon, Globe, Download, PlayCircle, QrCode } from 'lucide-react';
-import { PlayerProfile, Language, ThemeMode } from '../types';
+import { Sparkles, Flame, Heart, Volume2, VolumeX, Award, Globe, Download, QrCode } from 'lucide-react';
+import { PlayerProfile, Language } from '../types';
 import { getRankForLevel, getXpRequiredForLevel } from '../game/ranks';
 import { sound } from '../game/sound';
 import { TRANSLATIONS } from '../i18n/translations';
@@ -8,12 +8,10 @@ import { TRANSLATIONS } from '../i18n/translations';
 interface NavbarProps {
   profile: PlayerProfile;
   language: Language;
-  themeMode: ThemeMode;
   onToggleSound: () => void;
   onRefillLives: () => void;
   onResetProgress: () => void;
   onOpenProfile: () => void;
-  onToggleTheme: () => void;
   onChangeLanguage: (lang: Language) => void;
   onOpenInstallModal: () => void;
   onOpenQrModal?: () => void;
@@ -23,11 +21,9 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   profile,
   language,
-  themeMode,
   onToggleSound,
   onRefillLives,
   onOpenProfile,
-  onToggleTheme,
   onChangeLanguage,
   onOpenInstallModal,
   onOpenQrModal,
@@ -153,20 +149,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Download className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
             <span className="hidden sm:inline">{t.installApp}</span>
-          </button>
-
-          {/* Theme Mode Toggle */}
-          <button
-            id="navbar-theme-toggle-btn"
-            onClick={() => {
-              onToggleTheme();
-              sound.playClick();
-            }}
-            className="p-1.5 sm:p-2 rounded-xl bg-[#181a33] hover:bg-[#202447] border border-[#2b2f5b] text-amber-300 transition-all"
-            title={themeMode === 'dark' ? t.themeLight : t.themeDark}
-            aria-label="Changer le thème"
-          >
-            {themeMode === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-300" />}
           </button>
 
           {/* Language Switcher Dropdown */}

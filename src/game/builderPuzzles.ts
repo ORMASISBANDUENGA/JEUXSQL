@@ -287,5 +287,58 @@ export const BUILDER_PUZZLES: BuilderPuzzle[] = [
       'Utilise la syntaxe standard : INSERT INTO <table> (colonnes) VALUES (valeurs);'
     ],
     explanation: 'INSERT INTO permet d\'ajouter une nouvelle ligne dans une table relationnelle.'
+  },
+
+  // 11. CASE WHEN Conditionnel
+  {
+    id: 'build-11',
+    title: '11. Logique Conditionnelle CASE WHEN',
+    objective: 'Attribue un statut "Majeur" ou "Mineur" selon l\'âge des patients avec la clause conditionnelle CASE WHEN.',
+    category: 'CONDITIONAL',
+    difficulty: 'ADVANCED',
+    databaseId: 'hospital',
+    expectedQuery: "SELECT nom, prenom, CASE WHEN age >= 18 THEN 'Majeur' ELSE 'Mineur' END AS statut_age FROM patients;",
+    availableBlocks: [
+      { id: 'b1', text: 'SELECT nom, prenom,', type: 'column' },
+      { id: 'b2', text: 'CASE WHEN', type: 'keyword' },
+      { id: 'b3', text: 'age >= 18', type: 'operator' },
+      { id: 'b4', text: "THEN 'Majeur'", type: 'keyword' },
+      { id: 'b5', text: "ELSE 'Mineur'", type: 'keyword' },
+      { id: 'b6', text: 'END AS statut_age', type: 'keyword' },
+      { id: 'b7', text: 'FROM patients', type: 'table' },
+      { id: 'b8', text: ';', type: 'operator' },
+      // Distractors
+      { id: 'd1', text: 'IF age >= 18', type: 'keyword' },
+      { id: 'd2', text: 'SWITCH', type: 'keyword' }
+    ],
+    hints: [
+      'La structure commence par CASE WHEN et se termine par END AS alias.'
+    ],
+    explanation: 'CASE WHEN est l\'équivalent SQL d\'une structure if/else.'
+  },
+
+  // 12. Multi-Jointure 3 Tables
+  {
+    id: 'build-12',
+    title: '12. Jointure Triple Cinématographique',
+    objective: 'Reconstitue le casting complet en joignant les tables films, casting et acteurs.',
+    category: 'JOIN',
+    difficulty: 'ADVANCED',
+    databaseId: 'cinema',
+    expectedQuery: 'SELECT f.titre, a.nom, c.role FROM casting c JOIN films f ON c.film_id = f.id JOIN acteurs a ON c.acteur_id = a.id;',
+    availableBlocks: [
+      { id: 'b1', text: 'SELECT f.titre, a.nom, c.role', type: 'column' },
+      { id: 'b2', text: 'FROM casting c', type: 'table' },
+      { id: 'b3', text: 'JOIN films f ON c.film_id = f.id', type: 'clause' },
+      { id: 'b4', text: 'JOIN acteurs a ON c.acteur_id = a.id', type: 'clause' },
+      { id: 'b5', text: ';', type: 'operator' },
+      // Distractors
+      { id: 'd1', text: 'CROSS JOIN films', type: 'clause' },
+      { id: 'd2', text: 'WHERE c.film_id = a.id', type: 'clause' }
+    ],
+    hints: [
+      'Relie la table d\'association centrale (casting) aux deux tables référencées.'
+    ],
+    explanation: 'Dans une relation plusieurs-à-plusieurs (Many-to-Many), on joint la table de liaison aux deux tables principales.'
   }
 ];

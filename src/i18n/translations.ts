@@ -35,6 +35,25 @@ export interface Translations {
   installApp: string;
   installedApp: string;
 
+  // Learn Section
+  learnModules: string;
+  learnSearchPlaceholder: string;
+  allCategories: string;
+  noLessonsFound: string;
+  formalSyntax: string;
+  detailedExplanation: string;
+  tipsAndBestPractices: string;
+  quickCheatSheet: string;
+  runExampleQuery: string;
+  runInteractiveTest: string;
+  copyCode: string;
+  codeCopied: string;
+  databaseTarget: string;
+  difficultyLabel: string;
+  queryResults: string;
+  rowsReturned: string;
+  executionTime: string;
+
   // Splash Screen
   splashWelcome: string;
   splashPresenter: string;
@@ -81,12 +100,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     creatorName: 'OROMASIS BANDUENGA',
     creatorRole: 'Architecte & Concepteur Principal',
     tagline: 'L\'Aventure Ultime pour Maîtriser le SQL par le Jeu',
-    version: 'v1.3 PWA',
+    version: 'v1.4 PWA & Desktop',
 
     tabQuests: 'Carte Quêtes',
     tabChallenges: 'Défis SQL',
     tabMinigames: 'Mini-Jeux SQL',
-    tabLearn: 'Apprendre',
+    tabLearn: 'Apprendre le SQL',
     tabSandbox: 'Bac à Sable',
     tabBadges: 'Trophées',
     tabStats: 'Statistiques',
@@ -109,6 +128,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     installApp: 'Installer l\'Application',
     installedApp: 'Application Installée',
 
+    learnModules: 'Modules d\'Apprentissage SQL (16 Chapitres)',
+    learnSearchPlaceholder: 'Rechercher un concept (SELECT, JOIN, GROUP BY, CTE, DDL...)',
+    allCategories: 'Toutes les catégories',
+    noLessonsFound: 'Aucune leçon ne correspond à ta recherche.',
+    formalSyntax: 'Syntaxe Formelle :',
+    detailedExplanation: 'Explications Détaillées & Règles Métier :',
+    tipsAndBestPractices: 'Astuces & Bonnes Pratiques de Production :',
+    quickCheatSheet: 'Fiche Mémo Rapide (Cheat Sheet) :',
+    runExampleQuery: 'Exécuter l\'Exemple en Direct',
+    runInteractiveTest: 'Tester la requête sur la base active',
+    copyCode: 'Copier le code',
+    codeCopied: 'Copié !',
+    databaseTarget: 'Base active :',
+    difficultyLabel: 'Difficulté :',
+    queryResults: 'Résultats en temps réel :',
+    rowsReturned: 'ligne(s) retournée(s)',
+    executionTime: 'Temps d\'exécution :',
+
     splashWelcome: 'BIENVENUE DANS',
     splashPresenter: 'Une création originale de OROMASIS BANDUENGA',
     splashTagline: 'Forge tes compétences en requêtes relationnelles, bats les boss de bases de données et décroche le rang d\'Archimage SQL.',
@@ -117,9 +154,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     splashEnter: 'Commencer l\'Aventure',
     splashSkip: 'Passer l\'intro',
     splashFeatures: {
-      interactive: 'Exécution SQL temps réel dans le navigateur',
-      offline: 'Installable sur PC & Mobile (PWA Hors-ligne)',
-      rpg: 'Système RPG complet : XP, Niveaux, Vies, Badges & Boss'
+      interactive: 'Exécution SQL temps réel dans le navigateur (100+ requêtes interactives)',
+      offline: 'Installable sur PC & Mobile (PWA Hors-ligne + Exécutable Windows)',
+      rpg: 'Système RPG complet : XP, Niveaux, Vies, Badges & Raids de Boss'
     },
 
     pwaModalTitle: 'Installer SQL Quest sur ton Appareil',
@@ -133,7 +170,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     pwaIosStep: 'Appuie sur le bouton Partager (icône avec la flèche vers le haut ⎋) puis sélectionne "Sur l\'écran d\'accueil ⊞".',
     pwaClose: 'Compris !',
 
-    footerDesc: 'Plateforme gamifiée d\'apprentissage et d\'entraînement au langage SQL avec bac à sable interactif.',
+    footerDesc: 'Plateforme gamifiée d\'apprentissage et d\'entraînement au langage SQL avec bac à sable interactif et 100+ requêtes exécutables.',
     footerCreatedBy: 'Conçu & Développé par :',
     footerContactWhatsapp: 'WhatsApp :',
     qrCodeBtn: 'Scanner le Code QR',
@@ -151,16 +188,16 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     creatorName: 'OROMASIS BANDUENGA',
     creatorRole: 'Lead Architect & Designer',
     tagline: 'The Ultimate Gamified SQL Adventure',
-    version: 'v1.3 PWA',
+    version: 'v1.4 PWA & Desktop',
 
     tabQuests: 'Quest Map',
-    tabChallenges: 'Challenges',
+    tabChallenges: 'SQL Challenges',
     tabMinigames: 'SQL Minigames',
     tabLearn: 'Learn SQL',
     tabSandbox: 'Sandbox',
     tabBadges: 'Badges',
     tabStats: 'Statistics',
-    tabProfile: 'Profile',
+    tabProfile: 'My Profile',
 
     level: 'Level',
     rank: 'Rank',
@@ -179,6 +216,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     installApp: 'Install App',
     installedApp: 'App Installed',
 
+    learnModules: 'SQL Learning Modules (16 Chapters)',
+    learnSearchPlaceholder: 'Search a concept (SELECT, JOIN, GROUP BY, CTE, DDL...)',
+    allCategories: 'All categories',
+    noLessonsFound: 'No lessons matched your search.',
+    formalSyntax: 'Formal Syntax:',
+    detailedExplanation: 'Detailed Explanation & Core Concepts:',
+    tipsAndBestPractices: 'Production Tips & Best Practices:',
+    quickCheatSheet: 'Quick Cheat Sheet:',
+    runExampleQuery: 'Run Live Example Query',
+    runInteractiveTest: 'Test query on active database',
+    copyCode: 'Copy Code',
+    codeCopied: 'Copied!',
+    databaseTarget: 'Active Database:',
+    difficultyLabel: 'Difficulty:',
+    queryResults: 'Live Results:',
+    rowsReturned: 'row(s) returned',
+    executionTime: 'Execution time:',
+
     splashWelcome: 'WELCOME TO',
     splashPresenter: 'An original creation by OROMASIS BANDUENGA',
     splashTagline: 'Master relational database queries, defeat SQL bosses, and reach the Archmage rank.',
@@ -187,9 +242,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     splashEnter: 'Start the Adventure',
     splashSkip: 'Skip Intro',
     splashFeatures: {
-      interactive: 'Real-time client-side SQL execution',
-      offline: 'Installable on PC & Mobile (PWA offline ready)',
-      rpg: 'Full RPG system: XP, Levels, Hearts, Badges & Bosses'
+      interactive: 'Real-time client-side SQL execution (100+ executable queries)',
+      offline: 'Installable on PC & Mobile (PWA offline ready + Windows Desktop .exe)',
+      rpg: 'Full RPG system: XP, Levels, Hearts, Badges & Multi-stage Boss Raids'
     },
 
     pwaModalTitle: 'Install SQL Quest on Your Device',
@@ -203,7 +258,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     pwaIosStep: 'Tap the Share button (square with arrow ⎋) and select "Add to Home Screen ⊞".',
     pwaClose: 'Got it!',
 
-    footerDesc: 'Gamified interactive SQL learning platform featuring client-side sandbox execution.',
+    footerDesc: 'Gamified interactive SQL learning platform featuring client-side sandbox execution and 100+ queries.',
     footerCreatedBy: 'Designed & Developed by:',
     footerContactWhatsapp: 'WhatsApp:',
     qrCodeBtn: 'Scan QR Code',
@@ -221,12 +276,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     creatorName: 'OROMASIS BANDUENGA',
     creatorRole: 'Molakisi & Motongi ya Monene',
     tagline: 'Nzela ya lisano mpo na koyekola SQL na mayele',
-    version: 'v1.3 PWA',
+    version: 'v1.4 PWA & Desktop',
 
     tabQuests: 'Karti ya Misala',
     tabChallenges: 'Mekwelo ya SQL',
     tabMinigames: 'Masano ya SQL',
-    tabLearn: 'Koyekola',
+    tabLearn: 'Koyekola SQL',
     tabSandbox: 'Esika ya Mekelo',
     tabBadges: 'Mbano & Matabisi',
     tabStats: 'Kotala Makambo',
@@ -249,6 +304,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     installApp: 'Tia na Telefone / Ordinatɛrɛ',
     installedApp: 'Etiyami kala',
 
+    learnModules: 'Bateyelo ya SQL (Buku 16)',
+    learnSearchPlaceholder: 'Luka likambo (SELECT, JOIN, GROUP BY, DDL...)',
+    allCategories: 'Bikolo nionso',
+    noLessonsFound: 'Toli moko te ezwami mpo na boluki na yo.',
+    formalSyntax: 'Ndenge ya kokoma :',
+    detailedExplanation: 'Ndimbola ya Kina :',
+    tipsAndBestPractices: 'Mayele & Malako ya mosala :',
+    quickCheatSheet: 'Buku ya bokuse (Cheat Sheet) :',
+    runExampleQuery: 'Meka Requête oyo sika',
+    runInteractiveTest: 'Meka na base ya ba données',
+    copyCode: 'Kopier code',
+    codeCopied: 'Ekomami !',
+    databaseTarget: 'Base ya ba données :',
+    difficultyLabel: 'Bopeto :',
+    queryResults: 'Bambano :',
+    rowsReturned: 'molongo ezwami',
+    executionTime: 'Tango ya kosala :',
+
     splashWelcome: 'BOYEI BOLAMU NA',
     splashPresenter: 'Ebongisami mpe etongami na OROMASIS BANDUENGA',
     splashTagline: 'Yekola kotanga mpe kobongisa ba bases de données na nzela ya masano ya SQL.',
@@ -257,8 +330,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     splashEnter: 'Banda Lisano Sika',
     splashSkip: 'Leka noki',
     splashFeatures: {
-      interactive: 'Salela ba requêtes SQL na tango yango mpenza',
-      offline: 'Koki kotia yango na ordinatɛrɛ to telefone (PWA)',
+      interactive: 'Salela ba requêtes SQL na tango yango mpenza (requêtes koleka 100)',
+      offline: 'Koki kotia yango na ordinatɛrɛ to telefone (PWA & Windows)',
       rpg: 'Masano ya solosolo : XP, Bomoi, Mbano mpe Balongi'
     },
 
@@ -291,11 +364,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     creatorName: 'OROMASIS BANDUENGA',
     creatorRole: 'Mbunifu Mkuu & Msanidi Programu',
     tagline: 'Matukio ya Kujifunza SQL Kupitia Michezo',
-    version: 'v1.3 PWA',
+    version: 'v1.4 PWA & Desktop',
 
     tabQuests: 'Ramani ya Safari',
     tabChallenges: 'Changamoto za SQL',
-    tabMinigames: 'Michezo Midogo',
+    tabMinigames: 'Michezo Midogo ya SQL',
     tabLearn: 'Jifunze SQL',
     tabSandbox: 'Uwanja wa Majaribio',
     tabBadges: 'Nishani & Tuzo',
@@ -319,6 +392,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     installApp: 'Sakinisha Kwenye Kifaa',
     installedApp: 'Imesakinishwa',
 
+    learnModules: 'Moduli za Kujifunza SQL (Sura 16)',
+    learnSearchPlaceholder: 'Tafuta mada (SELECT, JOIN, GROUP BY, DDL...)',
+    allCategories: 'Kategoria zote',
+    noLessonsFound: 'Hakuna somo lililopatikana kulingana na utafutaji wako.',
+    formalSyntax: 'Muundo Rasmi wa Sentensi:',
+    detailedExplanation: 'Ufafanuzi wa Kina & Dhana Kuu:',
+    tipsAndBestPractices: 'Mbinu Bora za Kazi:',
+    quickCheatSheet: 'Muhtasari wa Haraka (Cheat Sheet):',
+    runExampleQuery: 'Tekeleza Mfano Moja kwa Moja',
+    runInteractiveTest: 'Jaribu kwenye hifadhidata inayotumika',
+    copyCode: 'Nakili Msimbo',
+    codeCopied: 'Imenakiliwa!',
+    databaseTarget: 'Hifadhidata Inayotumika:',
+    difficultyLabel: 'Kiwango cha Ugumu:',
+    queryResults: 'Matokeo ya Moja kwa Moja:',
+    rowsReturned: 'safu zilizopatikana',
+    executionTime: 'Muda wa utekelezaji:',
+
     splashWelcome: 'KARIBU KWENYE',
     splashPresenter: 'Kazi halisi kutoka kwa OROMASIS BANDUENGA',
     splashTagline: 'Bobea katika SQL kupitia changamoto za kusisimua na ufikie kiwango cha juu cha mtaalamu.',
@@ -327,8 +418,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     splashEnter: 'Anza Safari Sasa',
     splashSkip: 'Ruka Utangulizi',
     splashFeatures: {
-      interactive: 'Utekelezaji wa SQL wa moja kwa moja',
-      offline: 'Inaweza kusakinishwa kwenye PC na Simu (Inafanya kazi bila mtandao)',
+      interactive: 'Utekelezaji wa SQL wa moja kwa moja (hoja 100+ zinazoweza kutekelezwa)',
+      offline: 'Inaweza kusakinishwa kwenye PC na Simu (PWA & Windows .exe)',
       rpg: 'Mfumo kamili wa mchezo: XP, Viwango, Maisha na Tuzo'
     },
 
@@ -343,7 +434,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     pwaIosStep: 'Bofya kitufe cha Shiriki (ikoni ya ⎋) na uchague "Ongeza kwenye Skrini Kuu ⊞".',
     pwaClose: 'Nimeelewa!',
 
-    footerDesc: 'Jukwaa la kipekee la kujifunza SQL kupitia michezo na mazoezi shirikishi.',
+    footerDesc: 'Jukwaa la kipekee la kujifunza SQL kupitia michezo na mazoezi shirikishi yenye hoja 100+.',
     footerCreatedBy: 'Imebuniwa & Kujengwa na:',
     footerContactWhatsapp: 'WhatsApp :',
     qrCodeBtn: 'Skani Msimbo wa QR',

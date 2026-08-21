@@ -23,7 +23,7 @@ import { Footer } from './components/Footer';
 import { StorageService } from './game/storage';
 import { SQLSandbox } from './sql/sandbox';
 import { sound } from './game/sound';
-import { Challenge, PlayerProfile, ViewTab, Badge, Language, ThemeMode } from './types';
+import { Challenge, PlayerProfile, ViewTab, Badge, Language } from './types';
 import { ALL_BADGES } from './game/badges';
 
 export default function App() {
@@ -31,9 +31,8 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState<ViewTab>('quests');
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
 
-  // Language & Theme state (defaults to French 'fr' and 'dark')
+  // Language state (defaults to French 'fr')
   const [language, setLanguage] = useState<Language>(() => profile.language || 'fr');
-  const [themeMode, setThemeMode] = useState<ThemeMode>(() => profile.themeMode || 'dark');
 
   // Startup splash screen animation state
   const [showSplash, setShowSplash] = useState<boolean>(() => {
@@ -71,6 +70,10 @@ export default function App() {
     SQLSandbox.initializeDatabase('hospital');
     sound.setEnabled(profile.soundEnabled);
 
+    // Ensure dark mode class is set permanently
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+
     // Listen for PWA beforeinstallprompt
     const handleBeforeInstall = (e: Event) => {
       e.preventDefault();
@@ -83,18 +86,6 @@ export default function App() {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
     };
   }, []);
-
-  // Sync theme mode with document html tag
-  useEffect(() => {
-    const root = document.documentElement;
-    if (themeMode === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
-    }
-  }, [themeMode]);
 
   // Sync language with document html lang
   useEffect(() => {
@@ -109,14 +100,6 @@ export default function App() {
   const handleReplaySplash = () => {
     sound.playClick();
     setShowSplash(true);
-  };
-
-  const handleToggleTheme = () => {
-    const nextTheme: ThemeMode = themeMode === 'dark' ? 'light' : 'dark';
-    setThemeMode(nextTheme);
-    const updated = { ...profile, themeMode: nextTheme };
-    setProfile(updated);
-    StorageService.saveProfile(updated);
   };
 
   const handleChangeLanguage = (newLang: Language) => {
@@ -230,16 +213,14 @@ export default function App() {
         />
       )}
 
-      {/* Top RPG Header Bar with Theme, Sound, Lang & PWA Controls */}
+      {/* Top RPG Header Bar with Sound, Lang & PWA Controls */}
       <Navbar
         profile={profile}
         language={language}
-        themeMode={themeMode}
         onToggleSound={handleToggleSound}
         onRefillLives={handleRefillLives}
         onResetProgress={handleResetProgress}
         onOpenProfile={() => setCurrentTab('profile')}
-        onToggleTheme={handleToggleTheme}
         onChangeLanguage={handleChangeLanguage}
         onOpenInstallModal={() => setPwaModalOpen(true)}
         onOpenQrModal={() => setQrCodeModalOpen(true)}
@@ -274,11 +255,12 @@ export default function App() {
           <MiniGamesView onReward={handleMiniGameReward} />
         )}
 
-        {currentTab === 'learn' && <LearnView />}
+        {currentTab === 'learn' && <LearnView language={language} />}
 
         {currentTab === 'sandbox' && (
           <SandboxView
             profile={profile}
+            language={language}
             onRecordHistory={handleRecordSandboxHistory}
           />
         )}
@@ -291,11 +273,9 @@ export default function App() {
           <ProfileView
             profile={profile}
             language={language}
-            themeMode={themeMode}
             onUpdateProfile={handleUpdateProfile}
             onResetProgress={handleResetProgress}
             onChangeLanguage={handleChangeLanguage}
-            onToggleTheme={handleToggleTheme}
             onOpenInstallModal={() => setPwaModalOpen(true)}
             onOpenQrModal={() => setQrCodeModalOpen(true)}
             onReplaySplash={handleReplaySplash}

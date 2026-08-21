@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { User, Shield, Volume2, VolumeX, RotateCcw, Award, Check, Sparkles, Sun, Moon, Globe, Download, PlayCircle, MessageCircle, Smartphone, Monitor, QrCode } from 'lucide-react';
-import { PlayerProfile, Language, ThemeMode } from '../../types';
+import { User, Shield, Volume2, VolumeX, RotateCcw, Award, Check, Sparkles, Globe, Download, PlayCircle, MessageCircle, Smartphone, Monitor, QrCode } from 'lucide-react';
+import { PlayerProfile, Language } from '../../types';
 import { RANKS, getRankForLevel } from '../../game/ranks';
 import { sound } from '../../game/sound';
 import { TRANSLATIONS } from '../../i18n/translations';
@@ -8,11 +8,9 @@ import { TRANSLATIONS } from '../../i18n/translations';
 interface ProfileViewProps {
   profile: PlayerProfile;
   language: Language;
-  themeMode: ThemeMode;
   onUpdateProfile: (updated: Partial<PlayerProfile>) => void;
   onResetProgress: () => void;
   onChangeLanguage: (lang: Language) => void;
-  onToggleTheme: () => void;
   onOpenInstallModal: () => void;
   onOpenQrModal: () => void;
   onReplaySplash: () => void;
@@ -23,11 +21,9 @@ const AVAILABLE_AVATARS = ['🛡️', '⚔️', '🧙‍♂️', '🧝‍♀️'
 export const ProfileView: React.FC<ProfileViewProps> = ({
   profile,
   language,
-  themeMode,
   onUpdateProfile,
   onResetProgress,
   onChangeLanguage,
-  onToggleTheme,
   onOpenInstallModal,
   onOpenQrModal,
   onReplaySplash
@@ -145,11 +141,11 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
         </div>
       </div>
 
-      {/* Language and Appearance Settings */}
+      {/* Language and Preferences Settings */}
       <div className="bg-[#121426] dark:bg-[#121426] light:bg-white border border-[#272b52] dark:border-[#272b52] light:border-slate-200 rounded-3xl p-6 space-y-5 shadow-xl transition-colors">
         <h3 className="text-base font-extrabold text-white dark:text-white light:text-slate-900 flex items-center gap-2">
           <Globe className="w-5 h-5 text-[#00D4FF]" />
-          <span>{t.languageSelect} & Thème Visuel</span>
+          <span>{t.languageSelect}</span>
         </h3>
 
         {/* Language Chooser Buttons */}
@@ -178,35 +174,19 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
           </div>
         </div>
 
-        {/* Theme and Splash toggles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-          {/* Theme Mode Card */}
-          <div className="p-4 rounded-2xl bg-[#161833] dark:bg-[#161833] light:bg-slate-100 border border-[#272c54] dark:border-[#272c54] light:border-slate-300 flex items-center justify-between">
-            <div>
-              <h4 className="text-xs font-bold text-white dark:text-white light:text-slate-900">Mode Sombre / Clair</h4>
-              <p className="text-[11px] text-slate-400">Basculer le style visuel</p>
-            </div>
-            <button
-              onClick={onToggleTheme}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#212652] text-amber-300 border border-[#3b4382] font-bold text-xs hover:bg-[#2a3066] transition-all"
-            >
-              {themeMode === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-300" />}
-              <span>{themeMode === 'dark' ? 'Sombre' : 'Clair'}</span>
-            </button>
-          </div>
-
-          {/* Replay Splash Intro */}
+        {/* Replay Splash Intro card */}
+        <div className="pt-2">
           <div className="p-4 rounded-2xl bg-[#161833] dark:bg-[#161833] light:bg-slate-100 border border-[#272c54] dark:border-[#272c54] light:border-slate-300 flex items-center justify-between">
             <div>
               <h4 className="text-xs font-bold text-white dark:text-white light:text-slate-900">Intro & Splash OROMASIS</h4>
-              <p className="text-[11px] text-slate-400">Revoir l'animation de démarrage</p>
+              <p className="text-[11px] text-slate-400">Revoir l'animation cinématographique de démarrage</p>
             </div>
             <button
               onClick={onReplaySplash}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] text-white font-bold text-xs shadow-sm hover:brightness-110 transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] text-white font-bold text-xs shadow-sm hover:brightness-110 transition-all cursor-pointer"
             >
               <PlayCircle className="w-4 h-4" />
-              <span>Lancer</span>
+              <span>Lancer l'Intro</span>
             </button>
           </div>
         </div>

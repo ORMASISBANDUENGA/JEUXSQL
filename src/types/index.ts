@@ -7,6 +7,9 @@ export type SQLCategory =
   | 'HAVING'
   | 'JOIN'
   | 'SUBQUERY'
+  | 'FUNCTIONS'
+  | 'CONDITIONAL'
+  | 'OPTIMIZATION'
   | 'ADVANCED'
   | 'DML';
 
